@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.Extensions.DependencyInjection", "Quartz.Extensions.DependencyInjection\Quartz.Extensions.DependencyInjection.csproj", "{6B4C02DE-1319-4EA7-A342-E4E7DE75CCF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Test", "..\test\ConsoleApp.Test\ConsoleApp.Test.csproj", "{01CA31EE-B1CE-4B62-B082-8D97105D0D00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6B4C02DE-1319-4EA7-A342-E4E7DE75CCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B4C02DE-1319-4EA7-A342-E4E7DE75CCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B4C02DE-1319-4EA7-A342-E4E7DE75CCF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01CA31EE-B1CE-4B62-B082-8D97105D0D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01CA31EE-B1CE-4B62-B082-8D97105D0D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01CA31EE-B1CE-4B62-B082-8D97105D0D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01CA31EE-B1CE-4B62-B082-8D97105D0D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
