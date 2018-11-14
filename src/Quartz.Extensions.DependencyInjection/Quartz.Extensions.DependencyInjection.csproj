@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>Facundo Glaeser</Authors>
+    <Company />
+    <Description>Extension methods to integrate Quartz scheduler and the jobs with the generic host in net core.</Description>
+    <RepositoryUrl>https://github.com/fglaeser/Quartz.Extensions.DependencyInjection.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>quartz netcore</PackageTags>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
