@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>Facundo Glaeser</Authors>
+    <Company />
+    <Description>Extension methods to integrate Quartz scheduler and the jobs with the generic host in net core.</Description>
+    <RepositoryUrl>https://github.com/fglaeser/Quartz.Extensions.DependencyInjection.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>quartz netcore</PackageTags>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Quartz" Version="3.0.7" />
+  </ItemGroup>
+
+</Project>
