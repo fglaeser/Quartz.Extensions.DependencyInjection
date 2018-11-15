@@ -21,7 +21,7 @@ namespace Quartz.Extensions.DependencyInjection
 
     public void ReturnJob(IJob job)
     {
-      // not in use
+      (job as IDisposable)?.Dispose();
     }
   }
 }
