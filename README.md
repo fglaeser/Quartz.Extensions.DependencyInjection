@@ -19,7 +19,7 @@ Helper to register Quartz Scheduler and Jobs into the .NET Core dependency injec
       .ConfigureServices(s =>
       {
         s.AddQuartz();
-        s.AddJob<MyJob>();
+        s.AddJob<MyJob>(); //You can add all the jobs you need.
       })
       .Build();
       
@@ -41,4 +41,4 @@ You need to add some data in the appsettings.json file in order to configure the
   }
 }
 ```
-Notice that "MyJob" is exactly the same name of the Job class.
+Notice that "MyJob" is exactly the same name of the Job class previously registered in the IoC container.
