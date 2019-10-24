@@ -18,6 +18,7 @@ namespace ConsoleApp.Test
       {
         s.AddQuartz();
         s.AddJob<MyJob>();
+        s.AddJob<MyJobWithContext>();
       })
       .Build();
       
