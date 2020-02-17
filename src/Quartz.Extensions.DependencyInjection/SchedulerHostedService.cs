@@ -36,11 +36,17 @@ namespace Quartz.Extensions.DependencyInjection
 
         var options = new JobOptions();
         _configuration.Bind($"Quartz:Jobs:{jobName}", options);
-        
-        var job = JobBuilder.Create(jobType).WithIdentity(options.Identity).Build();
+
+        var dataMap = new JobDataMap();
+        var dataSectionItems = _configuration.GetSection($"Quartz:Jobs:{jobName}:Data")?.GetChildren();
+
+        foreach (IConfigurationSection item in dataSectionItems)
+            dataMap[item.Key] = item.Value;        
+
+        var job = JobBuilder.Create(jobType).WithIdentity(options.Identity).UsingJobData(dataMap).Build();
 
         var triggerBuilder = TriggerBuilder.Create()
-            .WithIdentity($"{options.Identity}.trigger")
+            .WithIdentity($"{options.Identity}.trigger")     
             .WithCronSchedule(options.CronSchedule);
         if (options.StartNow) triggerBuilder.StartNow();
 

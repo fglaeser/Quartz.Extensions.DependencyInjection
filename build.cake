@@ -3,6 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
+var apikey = Argument("apikey", "");
 var configuration = Argument("configuration", "Release");
 var sln = "Quartz.Extensions.DependencyInjection.sln";
 var folder = ".\\src\\Quartz.Extensions.DependencyInjection";
@@ -64,10 +65,11 @@ Task("Push").IsDependentOn("Pack")
      var settings = new DotNetCoreNuGetPushSettings
      {
          Source = "https://api.nuget.org/v3/index.json",
-         ApiKey = "oy2mfn4xaqzolfkqibzqtbjtlnz5tmquzmhrmaklcce5um"
+         ApiKey = apikey
      };
      DotNetCoreNuGetPush($".\\artifacts\\*.nupkg", settings);
     });
+	
 Task("default").IsDependentOn("Push");
 
 RunTarget(target);
