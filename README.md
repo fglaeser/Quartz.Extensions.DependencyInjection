@@ -18,8 +18,8 @@ Helper to register Quartz Scheduler and Jobs into the .NET Core dependency injec
       })
       .ConfigureServices(s =>
       {
-        s.AddQuartz();
-        s.AddJob<MyJob>(); //You can add all the jobs you need.
+        s.AddQuartz()
+         .AddJob<MyJob>(); //You can add all the jobs you need in a fluent way
       })
       .Build();
       
