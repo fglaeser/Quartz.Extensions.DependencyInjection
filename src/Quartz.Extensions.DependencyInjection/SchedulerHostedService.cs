@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Quartz.Impl;
 using Quartz.Spi;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,15 +11,15 @@ namespace Quartz.Extensions.DependencyInjection
   public class SchedulerHostedService : IHostedService
   {
     readonly IJobFactory _jobFactory;
-    readonly Type[] _job;
+    readonly QuartzOptions _options;
     readonly IConfiguration _configuration;
     private IScheduler _scheduler;
 
-    public SchedulerHostedService(IJobFactory jobFactory, IConfiguration configuration, Type[] jobs)
+    public SchedulerHostedService(IJobFactory jobFactory, IConfiguration configuration, IOptions<QuartzOptions> options)
     {
       _jobFactory = jobFactory;
       _configuration = configuration;
-      _job = jobs;
+      _options = options.Value;
     }
 
     public async Task StartAsync(CancellationToken cancellationToken)
@@ -29,9 +29,8 @@ namespace Quartz.Extensions.DependencyInjection
       _scheduler.JobFactory = _jobFactory;
 
       //Add jobs
-      for(int i=0; i < _job.Length; i++)
+      foreach(var jobType in _options.Jobs)
       {
-        var jobType = _job[i];
         var jobName = jobType.Name;
 
         var options = new JobOptions();

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Quartz.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace ConsoleApp.Test
@@ -16,9 +16,9 @@ namespace ConsoleApp.Test
       })
       .ConfigureServices(s =>
       {
-        s.AddQuartz();
-        s.AddJob<MyJob>();
-        s.AddJob<MyJobWithContext>();
+        s.AddQuartz()
+        .AddJob<MyJob>()
+        .AddJob<MyJobWithContext>();
       })
       .Build();
       
