@@ -43,12 +43,8 @@ namespace Quartz.Extensions.DependencyInjection
         else
           options = jobConfiguration.Options;
 
-        var dataMap = new JobDataMap();
-        var dataSectionItems = _configuration.GetSection($"Quartz:Jobs:{jobName}:Data")?.GetChildren();
-
-        foreach (IConfigurationSection item in dataSectionItems)
-            dataMap[item.Key] = item.Value;        
-
+        var dataMap = new JobDataMap(options.Data);
+     
         var job = JobBuilder.Create(jobConfiguration.JobType).WithIdentity(options.Identity).UsingJobData(dataMap).Build();
         if (!await _scheduler.CheckExists(job.Key, cancellationToken))
         {

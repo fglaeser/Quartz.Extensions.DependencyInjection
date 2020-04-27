@@ -20,14 +20,16 @@ namespace ConsoleApp.Test
         s.AddQuartz(o =>
         {
           o.WaitForJobsToComplete = true;
-          o.UseSqlite("Data Source=db.3db");
+          //o.UseSqlite(connectString: "Data Source=db.3db", ensureDatabaseIsCreated: false);
         })
-        //.AddJob<MyJob>()
-        .AddJob<MyJobWithContext>()
-        .AddJob<MyJobNoConfigFromFile>(o => {
-          o.Identity = "MyJobInLine";
-          o.CronSchedule = Cron.EverySomeSeconds(10);
-        });
+        .AddJob<MyJob>()
+        //.AddJob<MyJobWithContext>();
+        .AddJob<MyJobNoConfigFromFile>(o =>
+         {
+           o.Identity = "MyJobInLine";
+           o.CronSchedule = Cron.EverySomeSeconds(10);
+           o.Data.Add("ID", 234343);
+         });
       })
       .Build();
       

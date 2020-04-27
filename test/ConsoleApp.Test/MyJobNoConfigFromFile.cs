@@ -10,7 +10,13 @@ namespace ConsoleApp.Test
   {
     public Task Execute(IJobExecutionContext context)
     {
-      Console.WriteLine("Job No Config Execute");
+      Console.WriteLine("Job Inline");
+
+      JobDataMap dataMap = context.JobDetail.JobDataMap;
+
+      var testId = dataMap.GetInt("ID");
+      Console.WriteLine($"Context: ID {testId}");
+
       return Task.CompletedTask;
     }
   }
