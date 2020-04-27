@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Quartz.Extensions.DependencyInjection.Builder
 {
@@ -8,11 +9,20 @@ namespace Quartz.Extensions.DependencyInjection.Builder
       => Services = services;
     public IServiceCollection Services { get; }
 
-    public IQuartzSchedulerBuilder AddJob<TJob>() where TJob : IJob
+    public IQuartzSchedulerBuilder AddJob<TJob>(Action<JobOptions> action = null) where TJob : IJob
     {
-      Services.Configure<QuartzOptions>(options =>
-      {
-        options.Jobs.Add(typeof(TJob));
+      Services.Configure<QuartzOptions>(options => {
+        var jobConfiguration = new JobConfiguration
+        {
+          JobType = typeof(TJob)
+        };
+        if(action != null)
+        {
+          var jobOptions = new JobOptions();
+          action?.Invoke(jobOptions);
+          jobConfiguration.Options = jobOptions;
+        }
+        options.Jobs.Add(jobConfiguration);
       });
       return this;
     }

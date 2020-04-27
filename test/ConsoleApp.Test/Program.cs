@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Quartz.Extensions.DependencyInjection;
 
 namespace ConsoleApp.Test
 {
@@ -16,9 +17,17 @@ namespace ConsoleApp.Test
       })
       .ConfigureServices(s =>
       {
-        s.AddQuartz()
-        .AddJob<MyJob>()
-        .AddJob<MyJobWithContext>();
+        s.AddQuartz(o =>
+        {
+          o.WaitForJobsToComplete = true;
+          o.UseSqlite("Data Source=db.3db");
+        })
+        //.AddJob<MyJob>()
+        .AddJob<MyJobWithContext>()
+        .AddJob<MyJobNoConfigFromFile>(o => {
+          o.Identity = "MyJobInLine";
+          o.CronSchedule = Cron.EverySomeSeconds(10);
+        });
       })
       .Build();
       

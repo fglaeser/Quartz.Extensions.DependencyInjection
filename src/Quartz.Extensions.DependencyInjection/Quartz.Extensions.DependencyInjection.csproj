@@ -19,6 +19,7 @@ Add fluent job registration.
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Database\tables_sqlite.sql" />
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -27,6 +28,7 @@ Add fluent job registration.
 
   <ItemGroup>
     <EmbeddedResource Include="appsettings.json" />
+    <EmbeddedResource Include="Database\tables_sqlite.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,7 @@ Add fluent job registration.
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
     <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Quartz.Serialization.Json" Version="3.0.7" />
   </ItemGroup>
 
 </Project>
