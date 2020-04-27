@@ -116,7 +116,7 @@ To use sqlite as storage you need to add the package `Microsoft.Data.Sqlite` to 
     }
 ```
 
-As default before the schedule start the lib will ensure that the tables are created (the tables_sqlite.sql file from the Quartz.Net repo is embedded). You can control this behavior with the `ensureDatabaseIsCreated` parameter in the `UseSqlite` method:
+As default before the schedule starts the lib will ensure that the tables are created (the [`tables_sqlite.sql`](https://github.com/quartznet/quartznet/blob/master/database/tables/tables_sqlite.sql) file from the Quartz.Net repo is embedded). You can control this behavior with the `ensureDatabaseIsCreated` parameter in the `UseSqlite` method:
 
 ```csharp
 
