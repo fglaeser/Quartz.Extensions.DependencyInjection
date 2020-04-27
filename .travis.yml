@@ -6,3 +6,4 @@ before_install:
 script:
   - dotnet restore ./src/Quartz.Extensions.DependencyInjection/
   - dotnet build ./src/Quartz.Extensions.DependencyInjection/
+  - dotnet test ./test/Quartz.Unit.Test/

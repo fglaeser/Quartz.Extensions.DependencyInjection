@@ -26,7 +26,7 @@ namespace ConsoleApp.Test
         //.AddJob<MyJobWithContext>();
         .AddJob<MyJobNoConfigFromFile>(o =>
          {
-           o.Identity = "MyJobInLine";
+           //o.Identity = "MyJobInLine";
            o.CronSchedule = Cron.EverySomeSeconds(10);
            o.Data.Add("ID", 234343);
          });
