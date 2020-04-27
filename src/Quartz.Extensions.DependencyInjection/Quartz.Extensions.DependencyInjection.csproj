@@ -2,23 +2,24 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Facundo Glaeser</Authors>
     <Company />
     <Description>Extension methods to integrate Quartz scheduler and the jobs with the generic host in net core.</Description>
     <RepositoryUrl>https://github.com/fglaeser/Quartz.Extensions.DependencyInjection.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quartz netcore</PackageTags>
-    <AssemblyVersion>0.3.0</AssemblyVersion>
-    <FileVersion>0.3.0</FileVersion>
-    <PackageReleaseNotes>Add ScopedJobFatory.
-Add fluent job registration.
+    <AssemblyVersion>0.4.0</AssemblyVersion>
+    <FileVersion>0.4.0</FileVersion>
+    <PackageReleaseNotes>Inline job configuration.
+Sqlite store support.
 </PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="Database\tables_sqlite.sql" />
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -27,6 +28,7 @@ Add fluent job registration.
 
   <ItemGroup>
     <EmbeddedResource Include="appsettings.json" />
+    <EmbeddedResource Include="Database\tables_sqlite.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,7 @@ Add fluent job registration.
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
     <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Quartz.Serialization.Json" Version="3.0.7" />
   </ItemGroup>
 
 </Project>
