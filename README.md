@@ -1,9 +1,13 @@
+# DEPRECATED
+
+This is no longer supported, please consider using [Quartz.Net](https://github.com/quartznet/quartznet) instead.
+
 # Quartz.Extensions.DependencyInjection
 Helper to register Quartz Scheduler and Jobs into the .NET Core dependency injection container.
 
 | NuGet Version  | Downloads | Build Status |
 | ------------- | ------------- |-----------|
-| [![NuGet Version and Downloads count](https://img.shields.io/nuget/vpre/Quartz.Extensions.DependencyInjection.svg)](http://www.nuget.org/packages/Quartz.Extensions.DependencyInjection/)|[![NuGet Download count](https://img.shields.io/nuget/dt/Quartz.Extensions.DependencyInjection.svg)](http://www.nuget.org/packages/Quartz.Extensions.DependencyInjection/)|[![Build Status](https://travis-ci.com/fglaeser/Quartz.Extensions.DependencyInjection.svg?branch=develop)](https://travis-ci.com/fglaeser/Quartz.Extensions.DependencyInjection)|
+| [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)|[![NuGet Download count](https://img.shields.io/nuget/dt/Quartz.Extensions.DependencyInjection.svg)](http://www.nuget.org/packages/Quartz.Extensions.DependencyInjection/)|[![Build Status](https://travis-ci.com/fglaeser/Quartz.Extensions.DependencyInjection.svg?branch=develop)](https://travis-ci.com/fglaeser/Quartz.Extensions.DependencyInjection)|
 
 # Examples
 ## Add Quartz scheduler and Job to de IoC Container
